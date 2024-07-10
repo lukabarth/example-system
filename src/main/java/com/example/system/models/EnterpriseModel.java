@@ -18,7 +18,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @Entity
 @Table(name = "TB_EMPRESAS")
-public class EnterprisesModel implements Serializable {
+public class EnterpriseModel implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id

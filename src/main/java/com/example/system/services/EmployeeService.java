@@ -3,7 +3,7 @@ package com.example.system.services;
 import com.example.system.dtos.EmployeeRecordDto;
 import com.example.system.models.EmployeeModel;
 import com.example.system.repositories.EmployeeRepository;
-import com.example.system.repositories.EnterprisesRepository;
+import com.example.system.repositories.EnterpriseRepository;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 
@@ -11,7 +11,7 @@ import lombok.AllArgsConstructor;
 public class EmployeeService {
 
     private final EmployeeRepository employeeRepository;
-    private final EnterprisesRepository enterprisesRepository;
+    private final EnterpriseRepository enterpriseRepository;
 
     @Transactional
     public EmployeeModel saveEmployee(EmployeeRecordDto employeeRecordDto) {

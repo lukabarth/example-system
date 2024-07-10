@@ -39,5 +39,5 @@ public class PartnerModel implements Serializable {
 
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @ManyToMany(mappedBy = "partners", fetch = FetchType.LAZY)
-    private Set<EnterprisesModel> enterprises = new HashSet<>();
+    private Set<EnterpriseModel> enterprises = new HashSet<>();
 }

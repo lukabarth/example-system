@@ -39,7 +39,7 @@ public class EmployeeModel implements Serializable {
 
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @OneToMany(fetch = FetchType.LAZY)
-    private Set<EnterprisesModel> enterprises = new HashSet<>();
+    private Set<EnterpriseModel> enterprises = new HashSet<>();
 
     private EmployeeModel employeeModel;
 }
