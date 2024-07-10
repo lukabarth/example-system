@@ -27,9 +27,10 @@ public class EnterpriseController {
     @GetMapping("/empresas/{id}")
     public ResponseEntity<Object> getOneEnterprise(@PathVariable(value = "id")UUID id) {
         Optional<EnterpriseModel> enterpriseO = enterpriseRepository.findById(id);
-        if(enterpriseO.isEmpty()) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Empresa não encontrada");
+        if (enterpriseO.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Empresa não encontrada.");
         }
+
         return ResponseEntity.status(HttpStatus.OK).body(enterpriseO.get());
     }
 
@@ -39,5 +40,31 @@ public class EnterpriseController {
         BeanUtils.copyProperties(enterpriseRecordDto, enterpriseModel);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(enterpriseRepository.save(enterpriseModel));
+    }
+
+    @PutMapping("/empresas/{id}")
+    public ResponseEntity<Object> updateEnterprise(@PathVariable(value = "id") UUID id,
+                                                   @RequestBody EnterpriseRecordDto enterpriseRecordDto) {
+        Optional<EnterpriseModel> enterpriseO = enterpriseRepository.findById(id);
+        if (enterpriseO.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Empresa não encontrada.");
+        }
+
+        var enterpriseModel = enterpriseO.get();
+        BeanUtils.copyProperties(enterpriseRecordDto, enterpriseModel);
+
+        return ResponseEntity.status(HttpStatus.OK).body(enterpriseRepository.save(enterpriseModel));
+    }
+
+    @DeleteMapping("/empresas/{id}")
+    public ResponseEntity<Object> deleteEnterprise(@PathVariable(value = "id") UUID id) {
+        Optional<EnterpriseModel> enterpriseO = enterpriseRepository.findById(id);
+        if (enterpriseO.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Empresa não encontrada.");
+        }
+
+        enterpriseRepository.delete(enterpriseO.get());
+
+        return ResponseEntity.status(HttpStatus.OK).body("Empresa deletada com sucesso.");
     }
 }
