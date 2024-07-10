@@ -7,5 +7,4 @@ import java.util.UUID;
 
 public interface EmployeeRepository extends JpaRepository<EmployeeModel, UUID> {
 
-    EmployeeModel findEmployeeModelByName(String nome);
 }

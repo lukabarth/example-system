@@ -7,6 +7,4 @@ import java.util.UUID;
 
 public interface EnterpriseRepository extends JpaRepository<EnterpriseModel, UUID> {
 
-    EnterpriseModel findEnterprisesModelByCnpj(String cnpj);
-    EnterpriseModel findEnterprisesModelByRazaoSocial(String razaoSocial);
 }

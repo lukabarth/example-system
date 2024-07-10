@@ -26,7 +26,7 @@ public class EnterpriseModel implements Serializable {
     private UUID id;
 
     @Column(nullable = false, unique = true)
-    private String razao_social;
+    private String razaoSocial;
 
     @Column(nullable = false, unique = true)
     private String cnpj;

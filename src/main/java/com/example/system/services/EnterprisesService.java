@@ -15,12 +15,11 @@ public class EnterprisesService {
 
     private final PartnerRepository partnerRepository;
     private final EnterpriseRepository enterpriseRepository;
-    private final EmployeeRepository employeeRepository;
 
     @Transactional
     public EnterpriseModel saveEnterprise(EnterpriseRecordDto enterpriseRecordDto) {
         EnterpriseModel enterprise = new EnterpriseModel();
-        enterprise.setRazao_social(enterpriseRecordDto.razaoSocial());
+        enterprise.setRazaoSocial(enterpriseRecordDto.razaoSocial());
         enterprise.setCnpj(enterpriseRecordDto.cnpj());
         enterprise.setCidade(enterpriseRecordDto.cidade());
         enterprise.setEstado(enterpriseRecordDto.estado());
